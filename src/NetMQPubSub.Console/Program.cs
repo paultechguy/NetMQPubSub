@@ -1,5 +1,6 @@
 ﻿namespace NetMQPubSub.Console;
 
+using NetMQ;
 using NetMQPubSub.Publisher;
 using NetMQPubSub.Subscriber;
 using System;
@@ -17,6 +18,7 @@ internal class Program
 	static void Main()
 	{
 		new Program().Run();
+		NetMQConfig.Cleanup(); // the the docs for final cleanup
 	}
 
 	private void Run()
