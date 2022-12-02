@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Publisher;
 
 using NetMQ;
 using NetMQ.Sockets;
@@ -19,25 +19,30 @@ public class MessagePublisher : BaseMessagePublisher, IMessagePublisher, IDispos
 		this.Options = new MessagePublisherOptions(this);
 	}
 
-	public void Bind(string address)
+	public virtual void Bind(string address)
 	{
 		this.socket.Bind(address);
 	}
 
-	public void SendTopicMessage(string topic, string message)
+	public virtual void SendTopicMessage(string topic, string message)
 	{
 		this.socket.SendMoreFrame(topic).SendFrame(message);
 	}
 
-	public void SendTopicMessage<T>(string topic, T entity) where T : class, new()
+	public virtual void SendTopicMessage<T>(string topic, T entity) where T : class, new()
 	{
 		var json = JsonSerializer.Serialize(entity);
 		this.socket.SendMoreFrame(topic).SendFrame(json);
 	}
 
-	public void Unbind(string address)
+	public virtual void Unbind(string address)
 	{
 		this.socket.Unbind(address);
+	}
+
+	public virtual void Close()
+	{
+		this.socket.Close();
 	}
 
 	protected virtual void Dispose(bool disposing)

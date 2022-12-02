@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Publisher;
 
 using System;
 
@@ -7,6 +7,8 @@ public interface IMessagePublisher : IDisposable
 	void Bind(string address);
 
 	void Unbind(string address);
+
+	void Close();
 
 	void SendTopicMessage(string topic, string message);
 

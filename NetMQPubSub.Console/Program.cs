@@ -1,13 +1,16 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Console;
 
+using NetMQPubSub.Publisher;
+using NetMQPubSub.Subscriber;
+using System;
 using System.Text.Json;
 
 internal class Program
 {
 
-	private readonly List<string> topics = new List<string> { "TopicA", "TopicB", "TopicC" };
+	private readonly List<string> topics = new() { "TopicA", "TopicB", "TopicC" };
 
-	static void Main(string[] args)
+	static void Main()
 	{
 		new Program().Run();
 	}
@@ -54,7 +57,7 @@ internal class Program
 
 		} while (!cancelToken.IsCancellationRequested);
 
-		subscriber.Disconnect(addr);
+		subscriber.Close(); // also consider Disconnect(addr)
 		Console.WriteLine("<== Server done!");
 	}
 
@@ -69,7 +72,7 @@ internal class Program
 		Console.WriteLine("Publisher socket binding...");
 		publisher.Bind(addr);
 
-		// now that we've bound a socket, give subscriber a bit of time to get started
+		// now that we've bound a socket, give subscriber a bit of time to initialize
 		// before we begin sending messages
 		Thread.Sleep(1000);
 
@@ -90,7 +93,7 @@ internal class Program
 
 		} while (!cancelToken.IsCancellationRequested);
 
-		publisher.Unbind(addr);
+		publisher.Close(); // also consider Unbind(addr)
 		Console.WriteLine("==> Client done!");
 	}
 }

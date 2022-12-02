@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Console;
 
 using System;
 using System.Text.Json.Serialization;
