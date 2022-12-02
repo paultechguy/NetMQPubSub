@@ -8,7 +8,7 @@ using System.Text.Json;
 
 internal class Program
 {
-	private const int MaximumSubscribers = 2;
+	private const int MaximumSubscribers = 4;
 	private readonly List<string> topics = Enumerable
 		.Range(0, MaximumSubscribers)
 		.Select(t => $"Topic{t}")
