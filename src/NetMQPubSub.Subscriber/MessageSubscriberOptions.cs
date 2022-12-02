@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Subscriber;
 
 using NetMQ;
 

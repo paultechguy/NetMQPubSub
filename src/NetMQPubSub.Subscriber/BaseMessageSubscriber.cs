@@ -1,4 +1,5 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Subscriber;
+
 public class BaseMessageSubscriber
 {
 }

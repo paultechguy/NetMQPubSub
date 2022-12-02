@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSubExample;
+﻿namespace NetMQPubSub.Subscriber;
 
 using NetMQ;
 using NetMQ.Sockets;
@@ -19,19 +19,24 @@ public class MessageSubscriber : BaseMessageSubscriber, IMessageSubscriber, IDis
 		this.Options = new MessageSubscriberOptions(this);
 	}
 
-	public void Connect(string address)
+	public virtual void Connect(string address)
 	{
 		this.socket.Connect(address);
 	}
 
-	public void SendTopicMessage(string topic, string message)
+	public virtual void SendTopicMessage(string topic, string message)
 	{
 		this.socket.SendMoreFrame(topic).SendFrame(message);
 	}
 
-	public void Disconnect(string address)
+	public virtual void Disconnect(string address)
 	{
 		this.socket.Disconnect(address);
+	}
+
+	public virtual void Close()
+	{
+		this.socket.Close();
 	}
 
 	public bool TryReceiveTopicMessage(TimeSpan timeout, out string? topic, out bool moreFrames)
