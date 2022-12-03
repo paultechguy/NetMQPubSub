@@ -2,6 +2,7 @@
 
 using NetMQ;
 using NetMQ.Sockets;
+using NetMQPubSub.Shared.Interfaces;
 using System;
 using System.Text.Json;
 
@@ -10,7 +11,7 @@ public class MessageSubscriber : BaseMessageSubscriber, IMessageSubscriber, IDis
 	internal readonly SubscriberSocket socket;
 	private bool disposedValue;
 
-	public MessageSubscriberOptions Options { get; }
+	public IMessageSubscriberOptions Options { get; }
 
 	public MessageSubscriber()
 		: base()
@@ -57,12 +58,36 @@ public class MessageSubscriber : BaseMessageSubscriber, IMessageSubscriber, IDis
 			throw new ArgumentNullException("Empty message received");
 		}
 
-		return JsonSerializer.Deserialize<T>(text) ?? throw new ArgumentNullException($"Message received not type {typeof(T)}");
+		T entity = JsonSerializer.Deserialize<T>(text) ?? throw new ArgumentNullException($"Message received not type {typeof(T)}");
+
+		return entity;
+	}
+
+	public bool TryReceiveTopicMessage<T>(TimeSpan timeout, out string? topic, out T? entity) where T : class, new()
+	{
+		entity = null;
+		if (this.TryReceiveTopicMessage(timeout, out topic, out var moreFrames))
+		{
+			if (moreFrames)
+			{
+				entity = this.ReceiveMessage<T>();
+			}
+		}
+
+		return entity is not null;
 	}
 
 	public void TopicSubscribe(string topic)
 	{
 		this.socket.Subscribe(topic);
+	}
+
+	public void TopicSubscribe(IEnumerable<string> topics)
+	{
+		foreach (var topic in topics)
+		{
+			this.socket.Subscribe(topic);
+		}
 	}
 
 	protected virtual void Dispose(bool disposing)

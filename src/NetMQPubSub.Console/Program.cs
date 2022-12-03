@@ -1,7 +1,8 @@
 ﻿namespace NetMQPubSub.Console;
 
-using NetMQ;
 using NetMQPubSub.Publisher;
+using NetMQPubSub.Shared.Helpers;
+using NetMQPubSub.Shared.Interfaces;
 using NetMQPubSub.Subscriber;
 using System;
 using System.Linq;
@@ -18,7 +19,7 @@ internal class Program
 	static void Main()
 	{
 		new Program().Run();
-		NetMQConfig.Cleanup(); // the the docs for final cleanup
+		NetMQHelper.Cleanup();
 	}
 
 	private void Run()
@@ -72,7 +73,6 @@ internal class Program
 		{
 			var randomizedTopic = rand.Next(this.topics.Count);
 			var topic = this.topics[randomizedTopic];
-
 			++counter;
 
 			Console.WriteLine($"==> Sending message for topic \"{topic}\". Message: #{counter}");
@@ -91,7 +91,7 @@ internal class Program
 	{
 		Console.WriteLine($"Subscriber #{id} socket connecting...");
 
-		IMessageSubscriber subscriber = new MessageSubscriber();
+		using IMessageSubscriber subscriber = new MessageSubscriber();
 		subscriber.Options.ReceiveHighWatermark = 1000;
 		subscriber.Connect(addr);
 		subscriber.TopicSubscribe(topic);
@@ -100,14 +100,9 @@ internal class Program
 		var timeout = TimeSpan.FromSeconds(maxSecondsDelayBeforeCancelCheck);
 		do
 		{
-			if (subscriber.TryReceiveTopicMessage(timeout, out var messageTopicReceived, out var moreFrames))
+			if (subscriber.TryReceiveTopicMessage<TestMessage>(timeout, out var messageTopicReceived, out var entityReceived))
 			{
-				if (moreFrames)
-				{
-					TestMessage? messageReceived = null;
-					messageReceived = subscriber.ReceiveMessage<TestMessage>();
-					Console.WriteLine($"<== Subscriber #{id} message for topic \"{messageTopicReceived}\". Message: {JsonSerializer.Serialize(messageReceived)}");
-				}
+				Console.WriteLine($"<== Subscriber #{id} message for topic \"{messageTopicReceived}\". Message: {JsonSerializer.Serialize(entityReceived)}");
 			}
 
 		} while (!cancelToken.IsCancellationRequested);

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetMQPubSub.Publisher\NetMQPubSub.Publisher.csproj" />
+    <ProjectReference Include="..\NetMQPubSub.Shared\NetMQPubSub.Shared.csproj" />
     <ProjectReference Include="..\NetMQPubSub.Subscriber\NetMQPubSub.Subscriber.csproj" />
   </ItemGroup>
 

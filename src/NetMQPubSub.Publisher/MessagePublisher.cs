@@ -2,6 +2,7 @@
 
 using NetMQ;
 using NetMQ.Sockets;
+using NetMQPubSub.Shared.Interfaces;
 using System;
 using System.Text.Json;
 
@@ -10,7 +11,7 @@ public class MessagePublisher : BaseMessagePublisher, IMessagePublisher, IDispos
 	internal readonly PublisherSocket socket;
 	private bool disposedValue;
 
-	public MessagePublisherOptions Options { get; }
+	public IMessagePublisherOptions Options { get; }
 
 	public MessagePublisher()
 		: base()
