@@ -10,4 +10,8 @@
     <PackageReference Include="NetMQ" Version="4.0.1.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NetMQPubSub.Shared\NetMQPubSub.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
