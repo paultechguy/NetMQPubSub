@@ -10,7 +10,7 @@ using System.Text.Json;
 
 internal class Program
 {
-	private const int MaximumSubscribers = 4;
+	private const int MaximumSubscribers = 10;
 	private readonly List<string> topics = Enumerable
 		.Range(0, MaximumSubscribers)
 		.Select(t => $"Topic{t}")
@@ -79,7 +79,7 @@ internal class Program
 			publisher.SendTopicMessage(topic, new TestMessage() { Counter = counter });
 
 			// simulate a bit of processing
-			Thread.Sleep(500);
+			Thread.Sleep(50);
 
 		} while (!cancelToken.IsCancellationRequested);
 
