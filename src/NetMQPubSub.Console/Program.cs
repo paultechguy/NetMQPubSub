@@ -19,7 +19,7 @@ internal class Program
 	static void Main()
 	{
 		new Program().Run();
-		NetMQHelper.Cleanup();
+		NetMQPubSubHelper.Cleanup();
 	}
 
 	private void Run()
