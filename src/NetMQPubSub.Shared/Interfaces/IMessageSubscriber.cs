@@ -10,13 +10,18 @@ public interface IMessageSubscriber : IDisposable
 
 	void Close();
 
-	bool TryReceiveTopicMessage(TimeSpan timeout, out string? topic, out bool moreFrames);
 
-	string? ReceiveMessage();
+	string? ReceiveStringMessage();
+
+	bool TryReceiveStringMessage(TimeSpan timeout, out string? message, out bool moreFrames);
+
 
 	T ReceiveMessage<T>() where T : class, new();
 
-	bool TryReceiveTopicMessage<T>(TimeSpan timeout, out string? topic, out T? entity) where T : class, new();
+	bool TryReceiveStringMessage(TimeSpan timeout, out string? topic, out string? message);
+
+	bool TryReceiveMessage<T>(TimeSpan timeout, out string? topic, out T? entity) where T : class, new();
+
 
 	void TopicSubscribe(string topic);
 

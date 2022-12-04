@@ -2,7 +2,7 @@
 
 using NetMQ;
 
-public static class NetMQHelper
+public static class NetMQPubSubHelper
 {
 	public static void Cleanup()
 	{

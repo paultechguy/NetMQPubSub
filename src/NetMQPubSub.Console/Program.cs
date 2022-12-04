@@ -19,7 +19,7 @@ internal class Program
 	static void Main()
 	{
 		new Program().Run();
-		NetMQHelper.Cleanup();
+		NetMQPubSubHelper.Cleanup();
 	}
 
 	private void Run()
@@ -100,7 +100,7 @@ internal class Program
 		var timeout = TimeSpan.FromSeconds(maxSecondsDelayBeforeCancelCheck);
 		do
 		{
-			if (subscriber.TryReceiveTopicMessage<TestMessage>(timeout, out var messageTopicReceived, out var entityReceived))
+			if (subscriber.TryReceiveMessage<TestMessage>(timeout, out var messageTopicReceived, out var entityReceived))
 			{
 				Console.WriteLine($"<== Subscriber #{id} message for topic \"{messageTopicReceived}\". Message: {JsonSerializer.Serialize(entityReceived)}");
 			}
