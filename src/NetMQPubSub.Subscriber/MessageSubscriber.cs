@@ -40,19 +40,19 @@ public class MessageSubscriber : BaseMessageSubscriber, IMessageSubscriber, IDis
 		this.socket.Close();
 	}
 
-	public bool TryReceiveTopicMessage(TimeSpan timeout, out string? topic, out bool moreFrames)
-	{
-		return this.socket.TryReceiveFrameString(timeout, out topic, out moreFrames);
-	}
-
-	public string? ReceiveMessage()
+	public string? ReceiveStringMessage()
 	{
 		return this.socket.ReceiveFrameString();
 	}
 
+	public bool TryReceiveStringMessage(TimeSpan timeout, out string? message, out bool moreFrames)
+	{
+		return this.socket.TryReceiveFrameString(timeout, out message, out moreFrames);
+	}
+
 	public T ReceiveMessage<T>() where T : class, new()
 	{
-		var text = this.ReceiveMessage();
+		var text = this.ReceiveStringMessage();
 		if (text is null)
 		{
 			throw new ArgumentNullException("Empty message received");
@@ -63,10 +63,24 @@ public class MessageSubscriber : BaseMessageSubscriber, IMessageSubscriber, IDis
 		return entity;
 	}
 
-	public bool TryReceiveTopicMessage<T>(TimeSpan timeout, out string? topic, out T? entity) where T : class, new()
+	public bool TryReceiveStringMessage(TimeSpan timeout, out string? topic, out string? message)
+	{
+		message = null;
+		if (this.TryReceiveStringMessage(timeout, out topic, out bool moreFrames))
+		{
+			if (moreFrames)
+			{
+				message = this.ReceiveStringMessage();
+			}
+		}
+
+		return message is not null;
+	}
+
+	public bool TryReceiveMessage<T>(TimeSpan timeout, out string? topic, out T? entity) where T : class, new()
 	{
 		entity = null;
-		if (this.TryReceiveTopicMessage(timeout, out topic, out var moreFrames))
+		if (this.TryReceiveStringMessage(timeout, out topic, out bool moreFrames))
 		{
 			if (moreFrames)
 			{
