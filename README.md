@@ -1,4 +1,4 @@
-# NetMQPubSubExample
+# NetMQPubSub
 Written in NET Core 6 (C#) his is a basic publisher-subscriber IPC example.  It uses
 [NetMQ](https://github.com/zeromq/netmq) as the IPC transport and provides support for features such as:
 * Multiple subscribers, subscribing to different topics.
