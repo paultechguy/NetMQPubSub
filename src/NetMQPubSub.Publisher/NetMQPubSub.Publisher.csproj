@@ -4,14 +4,28 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>$(AssemblyName)</Title>
+    <Authors>Paul Carver</Authors>
+    <Description>Message publisher using NetMQ.</Description>
+    <Copyright>Copyright © 2022</Copyright>
+    <PackageProjectUrl>https://github.com/paultechguy/NetMQPubSub</PackageProjectUrl>
+    <PackageIcon>PubSubIcon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\ExampleApps\NetMQPubSub.Console\PubSubIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="D:\Users\pcarver\Documents\My Data\Home\dotnet\NetMQPubSub\README.md" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NetMQ" Version="4.0.1.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetMQPubSub.Shared\NetMQPubSub.Shared.csproj" />
+    <ProjectReference Include="..\NetMQPubSub.Shared\NetMQPubSub.Core.csproj" />
   </ItemGroup>
 
 </Project>

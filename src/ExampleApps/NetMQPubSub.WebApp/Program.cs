@@ -1,7 +1,7 @@
 namespace NetMQPubSub.WebApp;
 
-using NetMQPubSub.Shared.Helpers;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Common.Helpers;
+using NetMQPubSub.Core.Interfaces;
 using NetMQPubSub.Subscriber;
 using NetMQPubSub.WebApp.BackgroundSubscriber;
 using NetMQPubSub.WebApp.ExamplePublisher;

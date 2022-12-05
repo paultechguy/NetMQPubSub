@@ -1,6 +1,4 @@
-﻿namespace NetMQPubSub.Shared.Interfaces;
-
-using NetMQ;
+﻿namespace NetMQPubSub.Core.Interfaces;
 
 public interface IMessagePublisherOptions
 {

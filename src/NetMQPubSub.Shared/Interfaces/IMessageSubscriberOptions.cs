@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSub.Shared.Interfaces;
+﻿namespace NetMQPubSub.Core.Interfaces;
 
 public interface IMessageSubscriberOptions
 {

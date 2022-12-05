@@ -1,8 +1,8 @@
 ﻿namespace NetMQPubSub.Console;
 
 using NetMQPubSub.Publisher;
-using NetMQPubSub.Shared.Helpers;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Common.Helpers;
+using NetMQPubSub.Core.Interfaces;
 using NetMQPubSub.Subscriber;
 using System;
 using System.Linq;

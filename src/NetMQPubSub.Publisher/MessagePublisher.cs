@@ -2,7 +2,7 @@
 
 using NetMQ;
 using NetMQ.Sockets;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Core.Interfaces;
 using System;
 using System.Text.Json;
 
