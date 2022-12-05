@@ -87,7 +87,7 @@ internal class Program
 		Console.WriteLine($"==> Publisher done!");
 	}
 
-	private void RunTopicSubscriberAsync(string topic, string addr, int id, CancellationToken cancelToken)
+	private static void RunTopicSubscriberAsync(string topic, string addr, int id, CancellationToken cancelToken)
 	{
 		Console.WriteLine($"Subscriber #{id} socket connecting...");
 

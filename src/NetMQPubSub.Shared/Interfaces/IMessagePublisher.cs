@@ -4,15 +4,15 @@ using System;
 
 public interface IMessagePublisher : IDisposable
 {
-    void Bind(string address);
+	void Bind(string address);
 
-    void Unbind(string address);
+	void Unbind(string address);
 
-    void Close();
+	void Close();
 
-    void SendTopicMessage(string topic, string message);
+	void SendTopicMessage(string topic, string message);
 
-    void SendTopicMessage<T>(string topic, T entity) where T : class, new();
+	void SendTopicMessage<T>(string topic, T entity) where T : class, new();
 
-    IMessagePublisherOptions Options { get; }
+	IMessagePublisherOptions Options { get; }
 }

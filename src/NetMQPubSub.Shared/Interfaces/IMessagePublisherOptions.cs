@@ -2,5 +2,5 @@
 
 public interface IMessagePublisherOptions
 {
-    int SendHighWatermark { get; set; }
+	int SendHighWatermark { get; set; }
 }
