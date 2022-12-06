@@ -6,18 +6,27 @@
     <Nullable>enable</Nullable>
     <Title>$(AssemblyName)</Title>
     <Authors>Paul Carver</Authors>
-    <Description>Message publisher using NetMQ.</Description>
+    <Description>Publisher messaging support using NetMQ.</Description>
     <Copyright>Copyright © 2022</Copyright>
     <PackageProjectUrl>https://github.com/paultechguy/NetMQPubSub</PackageProjectUrl>
     <PackageIcon>PubSubIcon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/paultechguy/NetMQPubSub</RepositoryUrl>
+    <PackageTags>netmq;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
+    <FileVersion>1.0.0</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md" />
     <None Include="..\ExampleApps\NetMQPubSub.Console\PubSubIcon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="D:\Users\pcarver\Documents\My Data\Home\dotnet\NetMQPubSub\README.md" />
+    <None Include="D:\Users\pcarver\Documents\My Data\Home\dotnet\NetMQPubSub\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

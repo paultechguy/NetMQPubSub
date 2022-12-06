@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.Publisher", "Ne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.Subscriber", "NetMQPubSub.Subscriber\NetMQPubSub.Subscriber.csproj", "{02D0210B-7947-42ED-8B1D-51E07D434400}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.Core", "NetMQPubSub.Shared\NetMQPubSub.Core.csproj", "{D6A2606E-F548-4C6F-92F9-6093A7C96481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.Core", "NetMQPubSub.Core\NetMQPubSub.Core.csproj", "{D6A2606E-F548-4C6F-92F9-6093A7C96481}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.WebApp", "ExampleApps\NetMQPubSub.WebApp\NetMQPubSub.WebApp.csproj", "{2012FD3B-8BBE-4458-8129-5905349E162A}"
 EndProject
@@ -18,10 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{557D7B80-EA40-4FAF-9576-CD82B245AEC9}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE.txt = ..\LICENSE.txt
-		README.md = README.md
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQPubSub.Common", "NetMQPubSub.Common\NetMQPubSub.Common.csproj", "{597E84E1-A920-4D87-AC16-CA147F415F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMQPubSub.Common", "NetMQPubSub.Common\NetMQPubSub.Common.csproj", "{597E84E1-A920-4D87-AC16-CA147F415F71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

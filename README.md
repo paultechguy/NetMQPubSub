@@ -1,11 +1,20 @@
-# NetMQPubSubExample
-Written in NET Core 6 (C#) his is a basic publisher-subscriber IPC example.  It uses
-[NetMQ](https://github.com/zeromq/netmq) as the IPC transport and provides support for features such as:
-* Multiple subscribers, subscribing to different topics.
-* Global method to cancel both publisher and all subscribers.
-* Demonstrates the use of a timeout when reading IPC messages (i.e. NET Core CancellationToken).
+# NetMQPubSub
+NetMQPubSub is a general IPC publish-subcribe library written in NET Core. The underlying IPC transport layer is provided by
+[NetMQ](https://github.com/zeromq/netmq).
 
-Although there is some separation of function (i.e. interfaces, classes) his is fairly bare-bones example.  However, it should provide
-enough detail to allow the concepts to be placed into a more formal application.  The number of
-[NetMQ](https://github.com/zeromq/netmq) features provided in the
-Publisher and Subscriber objects is only what is required for the example code; it can be extended fairly easily.
+## Overview
+
+NetMQPubSub provides support for features such as:
+* Multiple subscribers, subscribing to different topics.
+* Cancellation of publishers and subscribers using a .NET Core CancellationToken.
+* Multiple language use
+* Can be used by both .NET Core Web Applications and Console Applications.
+
+The number of
+[NetMQ](https://github.com/zeromq/netmq) features supported in NetMQPubSub is limited to those needed
+by the example applications, found in the
+[GitHub repository](https://github.com/paultechguy/NetMQPubSub).
+
+## Example Applications
+
+* Demonstrates the use of a timeout when reading IPC messages (i.e. NET Core CancellationToken).

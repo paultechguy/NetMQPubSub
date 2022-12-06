@@ -2,16 +2,16 @@
 
 using NetMQPubSub.Subscriber;
 
-public class SubscriberService : BackgroundService
+public class SubscriberJobService : BackgroundService
 {
 	private const string MessageTopic = "JobMessage";
 	private const string ConnectAddress = "tcp://localhost:54321";
-	private readonly ILogger<SubscriberService> logger;
+	private readonly ILogger<SubscriberJobService> logger;
 	private MessageSubscriber? subscriber = null;
 	private Task? mainTask = null;
 
-	public SubscriberService(
-		 ILogger<SubscriberService> logger)
+	public SubscriberJobService(
+		 ILogger<SubscriberJobService> logger)
 	{
 		this.logger = logger;
 	}
@@ -25,7 +25,7 @@ public class SubscriberService : BackgroundService
 	{
 		this.mainTask = Task.Run(() =>
 		{
-			logger.LogInformation($"<== {nameof(SubscriberService)} is starting.");
+			logger.LogInformation($"<== {nameof(SubscriberJobService)} is starting.");
 			InitializeSubscriber();
 
 			var timeout = TimeSpan.FromSeconds(1);
@@ -45,7 +45,7 @@ public class SubscriberService : BackgroundService
 	{
 		if (this.mainTask is not null && this.subscriber is not null)
 		{
-			logger.LogInformation($"<== {nameof(SubscriberService)} is stopping.");
+			logger.LogInformation($"<== {nameof(SubscriberJobService)} is stopping.");
 			this.subscriber.Close();
 		}
 
