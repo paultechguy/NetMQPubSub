@@ -2,11 +2,11 @@
 
 using NetMQPubSub.Publisher;
 using NetMQPubSub.Common.Helpers;
-using NetMQPubSub.Core.Interfaces;
 using NetMQPubSub.Subscriber;
 using System;
 using System.Linq;
 using System.Text.Json;
+using NetMQPubSub.Core.Interfaces;
 
 internal class Program
 {

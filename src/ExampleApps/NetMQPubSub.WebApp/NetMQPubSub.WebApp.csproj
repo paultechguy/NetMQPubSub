@@ -12,8 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\NetMQPubSub.Common\NetMQPubSub.Common.csproj" />
+    <ProjectReference Include="..\..\NetMQPubSub.Core\NetMQPubSub.Core.csproj" />
     <ProjectReference Include="..\..\NetMQPubSub.Publisher\NetMQPubSub.Publisher.csproj" />
-    <ProjectReference Include="..\..\NetMQPubSub.Shared\NetMQPubSub.Core.csproj" />
     <ProjectReference Include="..\..\NetMQPubSub.Subscriber\NetMQPubSub.Subscriber.csproj" />
   </ItemGroup>
 

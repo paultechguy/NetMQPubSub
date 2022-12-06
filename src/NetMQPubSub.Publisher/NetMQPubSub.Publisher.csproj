@@ -34,7 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetMQPubSub.Shared\NetMQPubSub.Core.csproj" />
+    <ProjectReference Include="..\NetMQPubSub.Common\NetMQPubSub.Common.csproj" />
+    <ProjectReference Include="..\NetMQPubSub.Core\NetMQPubSub.Core.csproj" />
   </ItemGroup>
 
 </Project>
