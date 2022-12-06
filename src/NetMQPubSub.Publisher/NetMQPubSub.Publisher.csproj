@@ -1,41 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Title>$(AssemblyName)</Title>
-    <Authors>Paul Carver</Authors>
-    <Description>Publisher messaging support using NetMQ.</Description>
-    <Copyright>Copyright © 2022</Copyright>
-    <PackageProjectUrl>https://github.com/paultechguy/NetMQPubSub</PackageProjectUrl>
-    <PackageIcon>PubSubIcon.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/paultechguy/NetMQPubSub</RepositoryUrl>
-    <PackageTags>netmq;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
-    <FileVersion>1.0.0</FileVersion>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Title>$(AssemblyName)</Title>
+		<Authors>Paul Carver</Authors>
+		<Description>Publisher messaging support using NetMQ.</Description>
+		<Copyright>Copyright © 2022</Copyright>
+		<PackageProjectUrl>https://github.com/paultechguy/NetMQPubSub</PackageProjectUrl>
+		<PackageIcon>PubSubIcon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/paultechguy/NetMQPubSub</RepositoryUrl>
+		<PackageTags>netmq;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
+		<FileVersion>1.0.0</FileVersion>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\..\README.md" />
-    <None Include="..\ExampleApps\NetMQPubSub.Console\PubSubIcon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="D:\Users\pcarver\Documents\My Data\Home\dotnet\NetMQPubSub\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md" />
+		<None Include="..\ExampleApps\NetMQPubSub.ConsoleApp\PubSubIcon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="D:\Users\pcarver\Documents\My Data\Home\dotnet\NetMQPubSub\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NetMQ" Version="4.0.1.10" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NetMQ" Version="4.0.1.10" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NetMQPubSub.Common\NetMQPubSub.Common.csproj" />
-    <ProjectReference Include="..\NetMQPubSub.Core\NetMQPubSub.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NetMQPubSub.Common\NetMQPubSub.Common.csproj" />
+		<ProjectReference Include="..\NetMQPubSub.Core\NetMQPubSub.Core.csproj" />
+	</ItemGroup>
 
 </Project>

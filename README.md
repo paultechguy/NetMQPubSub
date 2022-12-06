@@ -16,14 +16,15 @@ NetMQPubSub provides support for features such as:
 ## License
 NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
 
-## Libraries Included
+## Nuget Packages
 
-This repository contains the source code for the following components:
+For most application you write with NetMQPubSub, you will need to include
+the several of these nuget packages (along with [NetMQ](https://github.com/zeromq/netmq)):
 
-* NetMQPubSub.Common - Features that are common across both publisher and subscriber.
-* NetMQPubSub.Core - Interfaces for publisher and subscriber related components. This has no dependency on NetMQ libraries.
-* NetMQPubSub.Publisher - Features for publisher.
-* NetMQPubSub.Subscriber - Features for subscriber.
+* [NetMQPubSub.Common](https://www.nuget.org/packages/NetMQPubSub.Common) - Features that are common across both publisher and subscriber.
+* [NetMQPubSub.Core](https://www.nuget.org/packages/NetMQPubSub.Core) - Interfaces for publisher and subscriber related components. This has no dependency on NetMQ libraries.
+* [NetMQPubSub.Publisher](https://www.nuget.org/packages/NetMQPubSub.Publisher) - Features for publisher.
+* [NetMQPubSub.Subscriber](https://www.nuget.org/packages/NetMQPubSub.Subscriber) - Features for subscriber.
 
 **Note:** Except as noted, the [NetMQ](https://github.com/zeromq/netmq) IPC transport layer libraries must be
 included in code projects.
