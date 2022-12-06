@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<Title>$(AssemblyName)</Title>
 		<Authors>Paul Carver</Authors>
-		<Description>Subscriber messaging support using NetMQ.</Description>
+		<Description>Common messaging support using NetMQ.</Description>
 		<Copyright>Copyright © 2022</Copyright>
 		<PackageProjectUrl>https://github.com/paultechguy/NetMQPubSub</PackageProjectUrl>
 		<PackageIcon>PubSubIcon.png</PackageIcon>
@@ -31,11 +31,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="NetMQ" Version="4.0.1.10" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\NetMQPubSub.Common\NetMQPubSub.Common.csproj" />
-		<ProjectReference Include="..\NetMQPubSub.Core\NetMQPubSub.Core.csproj" />
 	</ItemGroup>
 
 </Project>

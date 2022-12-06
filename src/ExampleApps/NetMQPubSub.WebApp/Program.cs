@@ -1,7 +1,7 @@
 namespace NetMQPubSub.WebApp;
 
-using NetMQPubSub.Shared.Helpers;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Common.Helpers;
+using NetMQPubSub.Core.Interfaces;
 using NetMQPubSub.Subscriber;
 using NetMQPubSub.WebApp.BackgroundSubscriber;
 using NetMQPubSub.WebApp.ExamplePublisher;
@@ -18,12 +18,14 @@ public class Program
 		builder.Services.AddRazorPages();
 		builder.Services.AddSingleton<IMessagePublisher>(s =>
 		{
+			// it is critical we bind here, early, so subscribers can
+			// successful subscribe to this publisher
 			var publisher = new ExampleJobPublisher();
 			publisher.Bind(BindAddress);
 			return publisher;
 		});
 		builder.Services.AddSingleton<IMessageSubscriber, MessageSubscriber>();
-		builder.Services.AddHostedService<SubscriberService>();
+		builder.Services.AddHostedService<SubscriberJobService>();
 
 		var app = builder.Build();
 
@@ -46,7 +48,7 @@ public class Program
 
 		app.Run();
 
-		// clean up messaging
+		// clean up IPC messaging
 		NetMQPubSubHelper.Cleanup();
 	}
 }

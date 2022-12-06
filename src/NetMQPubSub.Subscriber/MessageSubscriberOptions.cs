@@ -1,7 +1,7 @@
 ﻿namespace NetMQPubSub.Subscriber;
 
 using NetMQ;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Core.Interfaces;
 
 public class MessageSubscriberOptions : SocketOptions, IMessageSubscriberOptions
 {

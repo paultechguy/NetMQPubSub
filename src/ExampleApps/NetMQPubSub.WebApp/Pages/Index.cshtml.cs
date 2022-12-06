@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Core.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 public class IndexModel : PageModel

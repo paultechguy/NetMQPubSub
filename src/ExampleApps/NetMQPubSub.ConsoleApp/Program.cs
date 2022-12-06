@@ -1,12 +1,12 @@
-﻿namespace NetMQPubSub.Console;
+﻿namespace NetMQPubSub.ConsoleApp;
 
 using NetMQPubSub.Publisher;
-using NetMQPubSub.Shared.Helpers;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Common.Helpers;
 using NetMQPubSub.Subscriber;
 using System;
 using System.Linq;
 using System.Text.Json;
+using NetMQPubSub.Core.Interfaces;
 
 internal class Program
 {
@@ -87,7 +87,7 @@ internal class Program
 		Console.WriteLine($"==> Publisher done!");
 	}
 
-	private void RunTopicSubscriberAsync(string topic, string addr, int id, CancellationToken cancelToken)
+	private static void RunTopicSubscriberAsync(string topic, string addr, int id, CancellationToken cancelToken)
 	{
 		Console.WriteLine($"Subscriber #{id} socket connecting...");
 
@@ -110,4 +110,22 @@ internal class Program
 		subscriber.Close(); // also consider Disconnect(addr)
 		Console.WriteLine($"<== Subscriber #{id} done!");
 	}
+
+    internal class TestMessage
+    {
+        public int Counter { get; set; }
+
+        public string Name { get; set; }
+
+        public DateTime Now { get; set; }
+
+        public TestMessage()
+        {
+            var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
+            var random = new Random();
+			this.Counter = 0;
+            this.Name = names[random.Next(names.Length)];
+            this.Now = DateTime.Now;
+        }
+    }
 }

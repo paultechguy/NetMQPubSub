@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSub.Shared.Helpers;
+﻿namespace NetMQPubSub.Common.Helpers;
 
 using NetMQ;
 

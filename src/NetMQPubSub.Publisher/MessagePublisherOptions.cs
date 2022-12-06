@@ -1,7 +1,7 @@
 ﻿namespace NetMQPubSub.Publisher;
 
 using NetMQ;
-using NetMQPubSub.Shared.Interfaces;
+using NetMQPubSub.Core.Interfaces;
 
 public class MessagePublisherOptions : SocketOptions, IMessagePublisherOptions
 {
