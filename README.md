@@ -11,7 +11,7 @@ NetMQPubSub provides support for features such as:
 * Multiple subscribers, subscribing to different topics.
 * Cancellation of publishers and subscribers using a .NET Core CancellationToken.
 * Can be used by both .NET Core web applications and console applications.
-* Messages can send/received as strings or class objects.
+* Messages can sent/received as strings or class objects.
 
 ## License
 NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
