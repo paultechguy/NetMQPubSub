@@ -16,7 +16,7 @@ NetMQPubSub provides support for features such as:
 ## License
 NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
 
-## Library Included
+## Libraries Included
 
 This repository contains the source code for the following components:
 
@@ -32,7 +32,8 @@ included in code projects.
 
 In addition, the repository also includes source for the following example applications:
 
-* NetMQPubSub.ConsoleApp - Code included below, this is a console-based application that demonstrates sending continuous messages from a single publisher to a large number of subscribers.  This also demonstrates how to cancel all messaging agents based on a NET Core cancellation token.
+* NetMQPubSub.ConsoleApp - This is a console-based application that demonstrates sending continuous messages from a single publisher to a large number of subscribers.  This also demonstrates how to cancel all messaging agents based on a NET Core cancellation token.
+The source code for this application is included below.
 * NetMQPubSub.WebApp - A web application that demonstrates how to publish a message to a subscriber when a web button is pressed. This also provides the details on how to configure dependency injection for NET Core.
 
 ## Community Support
