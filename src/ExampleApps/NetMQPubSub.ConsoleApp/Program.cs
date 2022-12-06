@@ -1,4 +1,4 @@
-﻿namespace NetMQPubSub.Console;
+﻿namespace NetMQPubSub.ConsoleApp;
 
 using NetMQPubSub.Publisher;
 using NetMQPubSub.Common.Helpers;
@@ -110,4 +110,22 @@ internal class Program
 		subscriber.Close(); // also consider Disconnect(addr)
 		Console.WriteLine($"<== Subscriber #{id} done!");
 	}
+
+    internal class TestMessage
+    {
+        public int Counter { get; set; }
+
+        public string Name { get; set; }
+
+        public DateTime Now { get; set; }
+
+        public TestMessage()
+        {
+            var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
+            var random = new Random();
+			this.Counter = 0;
+            this.Name = names[random.Next(names.Length)];
+            this.Now = DateTime.Now;
+        }
+    }
 }
