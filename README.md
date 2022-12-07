@@ -14,7 +14,7 @@ NetMQPubSub provides support for features such as:
 * Messages can sent/received as strings or entity objects.
 
 ## License
-NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
+NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank">MIT License</a> model.
 
 ## Nuget Packages
 
