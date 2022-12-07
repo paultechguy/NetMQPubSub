@@ -12,7 +12,7 @@
 		<PackageIcon>PubSubIcon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/paultechguy/NetMQPubSub</RepositoryUrl>
-		<PackageTags>netmq;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
+		<PackageTags>netmq;ipc;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
 		<FileVersion>1.0.0</FileVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
