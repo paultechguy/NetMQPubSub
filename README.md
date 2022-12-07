@@ -1,8 +1,8 @@
 # NetMQPubSub
-NetMQPubSub is a general IPC publish-subscribe library written in NET Core. The underlying IPC transport layer is provided by
+NetMQPubSub is a lightweight IPC publish-subscribe library written in NET Core. The underlying IPC transport layer is provided by
 [NetMQ](https://github.com/zeromq/netmq).  The number of NetMQ features implemented in NetMQPubSub is limited to
-only those required to support messaging between a publisher and subscribers. This is a small number of features
-implemented, but we hope to expand those as needed in the future.
+only those required to support messaging between a publisher and its subscribers. Currently, this is a small number
+of features, but we will expand the feature set as needed in the future.
 
 ## Overview
 
@@ -11,15 +11,15 @@ NetMQPubSub provides support for features such as:
 * Multiple subscribers, subscribing to different topics.
 * Cancellation of publishers and subscribers using a .NET Core CancellationToken.
 * Can be used by both .NET Core web applications and console applications.
-* Messages can send/received as strings or class objects.
+* Messages can sent/received as strings or entity objects.
 
 ## License
 NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
 
 ## Nuget Packages
 
-For most application you write with NetMQPubSub, you will need to include
-the several of these nuget packages (along with [NetMQ](https://github.com/zeromq/netmq)):
+For most applications you write with NetMQPubSub, you will need to include
+several nuget packages (along with [NetMQ](https://github.com/zeromq/netmq)):
 
 * [NetMQPubSub.Common](https://www.nuget.org/packages/NetMQPubSub.Common) - Features that are common across both publisher and subscriber.
 * [NetMQPubSub.Core](https://www.nuget.org/packages/NetMQPubSub.Core) - Interfaces for publisher and subscriber related components. This has no dependency on NetMQ libraries.
@@ -31,23 +31,23 @@ included in code projects.
 
 ## Example Applications
 
-In addition, the repository also includes source for the following example applications:
+In addition, the repository also includes source code for the following example applications:
 
 * NetMQPubSub.ConsoleApp - This is a console-based application that demonstrates sending continuous messages from a single publisher to a large number of subscribers.  This also demonstrates how to cancel all messaging agents based on a NET Core cancellation token.
 The source code for this application is included below.
-* NetMQPubSub.WebApp - A web application that demonstrates how to publish a message to a subscriber when a web button is pressed. This also provides the details on how to configure dependency injection for NET Core.
+* NetMQPubSub.WebApp - A web application that demonstrates how to publish a message to a subscriber (within the web application as a service worker) when a web button is pressed. The code provides details on how to configure dependency injection for NET Core.
 
-## Community Support
+## Community Enhancements
 We welcome pull requests from the community to enhance and grow NetMQPubSub.
 
 ## NetMQPubSub.ConsoleApp
 This sample console application creates a single publisher and 10 subscribers.  The publisher will publish a message,
-using one of 10 random topics, every 50ms.  Each subscriber has subscribed to a single topic.
-The application will execute until the Enter key is pressed. This provides a suitable demonstration of how
+using one of 10 random topics, every 50ms.  Each subscriber is subscribed to a single topic.
+The application will execute until the Enter key is pressed. This example provides a suitable demonstration of how
 to leverage a NET Core CancellationToken to stop and dispose of the publisher and all subscribers once
 the Enter key is pressed. Lastly, it shows the proper way for an application to perform
-the required NetMQ cleanup when an application shuts down.  See the code reference
-to ```NetMQPubSubHelper.Cleanup()```.
+the required NetMQ cleanup when an application shuts down (see the code reference
+to *NetMQPubSubHelper.Cleanup*).
 
 ``` csharp
 namespace NetMQPubSub.ConsoleApp;
@@ -163,23 +163,22 @@ internal class Program
 		Console.WriteLine($"<== Subscriber #{id} done!");
 	}
 
-    internal class TestMessage
-    {
-        public int Age { get; set; }
+	internal class TestMessage
+	{
+		public int Counter { get; set; }
 
-        public string Name { get; set; }
+		public string Name { get; set; }
 
-        public DateTime Now { get; set; }
+		public DateTime Now { get; set; }
 
-        public TestMessage()
-        {
-            var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
-            var random = new Random();
-            this.Age = random.Next(1, 100);
-            this.Name = names[random.Next(names.Length)];
-            this.Now = DateTime.Now;
-        }
-    }
+		public TestMessage()
+		{
+			var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
+			var random = new Random();
+			this.Counter = 0;
+			this.Name = names[random.Next(names.Length)];
+			this.Now = DateTime.Now;
+		}
+	}
 }
-
 ```
