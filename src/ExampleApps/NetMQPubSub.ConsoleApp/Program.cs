@@ -111,21 +111,21 @@ internal class Program
 		Console.WriteLine($"<== Subscriber #{id} done!");
 	}
 
-    internal class TestMessage
-    {
-        public int Counter { get; set; }
+	internal class TestMessage
+	{
+		public int Counter { get; set; }
 
-        public string Name { get; set; }
+		public string Name { get; set; }
 
-        public DateTime Now { get; set; }
+		public DateTime Now { get; set; }
 
-        public TestMessage()
-        {
-            var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
-            var random = new Random();
+		public TestMessage()
+		{
+			var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
+			var random = new Random();
 			this.Counter = 0;
-            this.Name = names[random.Next(names.Length)];
-            this.Now = DateTime.Now;
-        }
-    }
+			this.Name = names[random.Next(names.Length)];
+			this.Now = DateTime.Now;
+		}
+	}
 }

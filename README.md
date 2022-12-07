@@ -1,8 +1,8 @@
 # NetMQPubSub
-NetMQPubSub is a general IPC publish-subscribe library written in NET Core. The underlying IPC transport layer is provided by
+NetMQPubSub is a lightweight IPC publish-subscribe library written in NET Core. The underlying IPC transport layer is provided by
 [NetMQ](https://github.com/zeromq/netmq).  The number of NetMQ features implemented in NetMQPubSub is limited to
-only those required to support messaging between a publisher and subscribers. This is a small number of features
-implemented, but we hope to expand those as needed in the future.
+only those required to support messaging between a publisher and its subscribers. Currently, this is a small number
+of features, but we will expand the feature set as needed in the future.
 
 ## Overview
 
@@ -11,14 +11,14 @@ NetMQPubSub provides support for features such as:
 * Multiple subscribers, subscribing to different topics.
 * Cancellation of publishers and subscribers using a .NET Core CancellationToken.
 * Can be used by both .NET Core web applications and console applications.
-* Messages can sent/received as strings or class objects.
+* Messages can sent/received as strings or entity objects.
 
 ## License
 NetMQPubSub uses the <a href="https://mit-license.org/" target="_blank_">MIT License</a> model.
 
 ## Nuget Packages
 
-For most application you write with NetMQPubSub, you will need to include
+For most applications you write with NetMQPubSub, you will need to include
 several nuget packages (along with [NetMQ](https://github.com/zeromq/netmq)):
 
 * [NetMQPubSub.Common](https://www.nuget.org/packages/NetMQPubSub.Common) - Features that are common across both publisher and subscriber.
@@ -37,7 +37,7 @@ In addition, the repository also includes source code for the following example 
 The source code for this application is included below.
 * NetMQPubSub.WebApp - A web application that demonstrates how to publish a message to a subscriber (within the web application as a service worker) when a web button is pressed. The code provides details on how to configure dependency injection for NET Core.
 
-## Community Support
+## Community Enhancements
 We welcome pull requests from the community to enhance and grow NetMQPubSub.
 
 ## NetMQPubSub.ConsoleApp
@@ -163,23 +163,22 @@ internal class Program
 		Console.WriteLine($"<== Subscriber #{id} done!");
 	}
 
-    internal class TestMessage
-    {
-        public int Age { get; set; }
+	internal class TestMessage
+	{
+		public int Counter { get; set; }
 
-        public string Name { get; set; }
+		public string Name { get; set; }
 
-        public DateTime Now { get; set; }
+		public DateTime Now { get; set; }
 
-        public TestMessage()
-        {
-            var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
-            var random = new Random();
-            this.Age = random.Next(1, 100);
-            this.Name = names[random.Next(names.Length)];
-            this.Now = DateTime.Now;
-        }
-    }
+		public TestMessage()
+		{
+			var names = new string[] { "Joe", "Sally", "Mary", "Steve", "Iris", "Bob" };
+			var random = new Random();
+			this.Counter = 0;
+			this.Name = names[random.Next(names.Length)];
+			this.Now = DateTime.Now;
+		}
+	}
 }
-
 ```
