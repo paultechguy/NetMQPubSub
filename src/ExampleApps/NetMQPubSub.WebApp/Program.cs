@@ -24,7 +24,6 @@ public class Program
 			publisher.Bind(BindAddress);
 			return publisher;
 		});
-		builder.Services.AddSingleton<IMessageSubscriber, MessageSubscriber>();
 		builder.Services.AddHostedService<SubscriberJobService>();
 
 		var app = builder.Build();
