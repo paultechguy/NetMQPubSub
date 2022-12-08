@@ -7,8 +7,7 @@ using NetMQPubSub.WebApp.ExamplePublisher;
 
 public class Program
 {
-	//private const string BindAddress = "tcp://localhost:54321";
-	private const string BindAddress = "inproc://admin-bulk-email";
+		private const string BindAddress = "inproc://admin-bulk-email"; // or something like "tcp://localhost:54321";
 
 	public static void Main(string[] args)
 	{
