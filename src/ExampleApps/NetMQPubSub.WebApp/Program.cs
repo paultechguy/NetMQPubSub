@@ -2,13 +2,13 @@ namespace NetMQPubSub.WebApp;
 
 using NetMQPubSub.Common.Helpers;
 using NetMQPubSub.Core.Interfaces;
-using NetMQPubSub.Subscriber;
 using NetMQPubSub.WebApp.BackgroundSubscriber;
 using NetMQPubSub.WebApp.ExamplePublisher;
 
 public class Program
 {
-	private const string BindAddress = "tcp://localhost:54321";
+	//private const string BindAddress = "tcp://localhost:54321";
+	private const string BindAddress = "inproc://admin-bulk-email";
 
 	public static void Main(string[] args)
 	{
@@ -16,14 +16,12 @@ public class Program
 
 		// Add services to the container.
 		builder.Services.AddRazorPages();
-		builder.Services.AddSingleton<IMessagePublisher>(s =>
-		{
-			// it is critical we bind here, early, so subscribers can
-			// successful subscribe to this publisher
-			var publisher = new ExampleJobPublisher();
-			publisher.Bind(BindAddress);
-			return publisher;
-		});
+
+		// it is critical we bind here, early before the subscriber service
+		// is hsoted, so subscribers can subscribe to the publisher
+		var publisher = new ExampleJobPublisher();
+		publisher.Bind(BindAddress);
+		builder.Services.AddSingleton<IMessagePublisher>(publisher);
 		builder.Services.AddHostedService<SubscriberJobService>();
 
 		var app = builder.Build();

@@ -5,7 +5,8 @@ using NetMQPubSub.Subscriber;
 public class SubscriberJobService : BackgroundService
 {
 	private const string MessageTopic = "JobMessage";
-	private const string ConnectAddress = "tcp://localhost:54321";
+	//private const string ConnectAddress = "tcp://localhost:54321";
+	private const string ConnectAddress = "inproc://admin-bulk-email";
 	private readonly ILogger<SubscriberJobService> logger;
 	private MessageSubscriber? subscriber = null;
 	private Task? mainTask = null;
