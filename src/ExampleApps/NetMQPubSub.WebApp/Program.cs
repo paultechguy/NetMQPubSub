@@ -45,6 +45,6 @@ public class Program
 		app.Run();
 
 		// clean up IPC messaging
-		NetMQPubSubHelper.Cleanup();
+		NetMQPubSubHelper.Cleanup(block: true);
 	}
 }

@@ -10,8 +10,8 @@ public static class NetMQPubSubHelper
 	/// <summary>
 	/// Cleanup library resources. Call this method when your process is shutting down.
 	/// </summary>
-	public static void Cleanup()
+	public static void Cleanup(bool block = true)
 	{
-		NetMQConfig.Cleanup(); // the the docs for final cleanup
+		NetMQConfig.Cleanup(block); // the the docs for final cleanup
 	}
 }
