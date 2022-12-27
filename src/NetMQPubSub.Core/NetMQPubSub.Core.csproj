@@ -17,8 +17,8 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<Version>1.0.1</Version>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
-	</PropertyGroup>
+        <Version>1.0.2-alpha01</Version>
+    </PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\..\README.md" />
