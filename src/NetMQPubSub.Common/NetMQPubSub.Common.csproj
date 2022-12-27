@@ -13,11 +13,11 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/paultechguy/NetMQPubSub</RepositoryUrl>
 		<PackageTags>netmq;ipc;publisher;subscriber;netcore;zeromq;csharp</PackageTags>
-		<FileVersion>1.0.1</FileVersion>
+		<FileVersion>1.0.2</FileVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
-		<Version>1.0.1</Version>
+		<AssemblyVersion>1.0.2</AssemblyVersion>
+		<Version>1.0.2-alpha01</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
